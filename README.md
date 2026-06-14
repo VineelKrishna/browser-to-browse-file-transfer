@@ -2,6 +2,10 @@
 
 Direct browser-to-browser file sharing built for the MARS Open Projects 2026 web development brief. The app uses a small Node.js signaling server to create rooms and exchange WebRTC offers, answers, and ICE candidates. File bytes move only through the WebRTC data channel between browsers.
 
+## Live Demo
+
+https://browser-to-browse-file-transfer.onrender.com/
+
 ## Features
 
 - Drag-and-drop sender flow with a generated room ID and invite link.
@@ -48,6 +52,17 @@ NODE_ENV=production npm start
 
 In production mode the Express server serves the built frontend from `dist/` and handles `/room/:id` links.
 
+## Deployment
+
+The app is deployed as a single Render Node web service:
+
+- Live demo: `https://browser-to-browse-file-transfer.onrender.com/`
+- Build command: `npm ci && npm run build`
+- Start command: `npm start`
+- Environment variable: `NODE_ENV=production`
+
+This single service hosts both the React frontend and the Socket.IO signaling backend. The frontend connects to the same deployed origin in production, so no separate `VITE_SIGNALING_URL` is required for this Render deployment.
+
 ## Environment Variables
 
 Copy `.env.example` to `.env` if you need custom ports or origins.
@@ -63,4 +78,4 @@ VITE_SIGNALING_URL=http://localhost:3001
 - The signaling server only relays WebRTC setup messages. It does not read, process, or store any file chunks.
 - The app uses a public STUN server. Some strict networks may require a TURN server for reliable cross-network transfers.
 - Large-file streaming beyond 50 MB is listed as an optional extension in the brief and is not enabled in this MVP.
-- Demo deployments usually need the frontend and signaling backend deployed separately unless a single Node host serves both.
+- The current Render deployment uses a single Node host for both the frontend and signaling backend.
