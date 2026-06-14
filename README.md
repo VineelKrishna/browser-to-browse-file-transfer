@@ -20,7 +20,6 @@ server/index.js   Socket.IO signaling server; never receives file bytes.
 src/App.jsx       React app and WebRTC transfer protocol.
 src/styles.css    Responsive application UI.
 README.md         Setup and project notes.
-SUBMISSION_INSTRUCTIONS.md  What to submit and how to submit it.
 ```
 
 ## Setup
