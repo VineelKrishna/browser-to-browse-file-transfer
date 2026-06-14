@@ -1,0 +1,30 @@
+{
+  "name": "p2p-web-share",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Direct browser-to-browser file transfer with WebRTC data channels and Socket.IO signaling.",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "node server/index.js",
+    "dev:client": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "start": "node server/index.js",
+    "check": "npm run build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "vite": "^6.0.5"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
